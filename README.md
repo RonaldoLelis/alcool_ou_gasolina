@@ -1,4 +1,5 @@
-# etagas
+# Álcool ou Gasolina
+# App feito seguindo as aulas do Curso balta.io
 
 A new Flutter project.
 
