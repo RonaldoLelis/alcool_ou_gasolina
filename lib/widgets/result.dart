@@ -17,7 +17,7 @@ class Success extends StatelessWidget {
     return Container(
             margin: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white70,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(22),
             ),
             child: Column(
@@ -25,7 +25,7 @@ class Success extends StatelessWidget {
                 SizedBox(height: 30),
                 Text(resultado,
                 style: TextStyle(
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.blue,
                   fontSize: 44,
                   fontFamily: 'Teko',
                 ),

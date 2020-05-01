@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  Color _color = Colors.green;
   var _gasCtrl = new MoneyMaskedTextController();
   var _alcCtrl = new MoneyMaskedTextController();
   var _busy = false;
@@ -22,14 +23,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
+      body: AnimatedContainer(
+        duration: Duration(
+          milliseconds: 1200,
+        ),
+        color: _color,
+        child: ListView(
        padding: EdgeInsets.all(15),
         children: <Widget>[ 
           Logo(),
           _completed ?
           Success(
           resultado: _resultText,
-          reset: (){},
+          reset: reset,
           ) :
           SubmitForm(
             gasCtrl: _gasCtrl,
@@ -39,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+        ),
     );
   }
 
@@ -46,12 +53,37 @@ class _HomePageState extends State<HomePage> {
     double alc =
       double.parse(_alcCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
     double gas =
-      double.parse(_alcCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
+      double.parse(_gasCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
     double res = alc / gas;
 
     setState((){
       _completed = false;
       _busy = true;
+      _color = Colors.blueAccent;
     });
+
+    return Future.delayed(const Duration(seconds: 1), (){
+      setState(() {
+        if(res >= 0.7){
+          _resultText = "Compensa utilizar Gasolina!";
+        }else {
+          _resultText = "Compensa utilizar Álcool!";
+        }
+        _busy = false;
+        _completed = true;
+      });
+    });
+  }
+
+  reset(){
+    setState(() {
+      _alcCtrl = MoneyMaskedTextController();
+      _gasCtrl = MoneyMaskedTextController();
+      _completed = false;
+      _busy = false;
+      _color = Theme.of(context).primaryColor;
+    });
+
+
   }
 }

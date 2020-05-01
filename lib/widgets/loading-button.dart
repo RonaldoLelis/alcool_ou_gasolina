@@ -31,7 +31,7 @@ class LoadingButton extends StatelessWidget {
               height: 65,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: invert ? Theme.of(context).primaryColor : Colors.white38,
+                color: invert ? Colors.blueAccent : Colors.white38,
                 borderRadius: BorderRadius.circular(48),
               ),
               child: FlatButton(

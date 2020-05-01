@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Álcool ou Gasolina',
       theme: ThemeData(        
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.cyan,
       ),
       home: HomePage(),
     );
