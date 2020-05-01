@@ -5,7 +5,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 50),
+        SizedBox(height: 65),
         Image.asset(
           "assets/images/aog-white.png",
           height: 120,
@@ -17,7 +17,7 @@ class Logo extends StatelessWidget {
           color: Colors.white,
         ),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 30),
       ],
     );
   }

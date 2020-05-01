@@ -18,7 +18,7 @@ class InputCombustivel extends StatelessWidget {
       children: [Row(
             children: <Widget>[
               Container(
-                width: 150,
+                width: 125,
                 alignment: Alignment.centerRight,
                 child: Text(label,
                   style: TextStyle(
